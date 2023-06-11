@@ -46,4 +46,3 @@ recommended_songs = recommend_similar_songs(user_input_song)
 # Print the recommended songs
 for song in recommended_songs:
     print(song)
-
