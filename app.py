@@ -18,16 +18,9 @@ connection = mysql.connector.connect(
     database=mysql_database
 )
 
-
 @app.route("/")
 def home():
-    return '''
-    <h1>Welcome to Play Suits!</h1>
-    <form action="/search" method="post">      
-        <input type="text" name="query" placeholder="Enter a song or artist">
-        <input type="submit" value="Search">   
-    </form>
-    '''
+    return render_template("index.html")
 
 
 @app.route("/search", methods=["POST"])
@@ -50,13 +43,7 @@ def recommend():
 
 
 def perform_recommendation(query):
-    preprocessed_data = [
-        ("Rihanna", "Love on the Brain", "Pop"),
-        ("Chris Brown", "Influential", "Pop"),
-        ("Shakira", "Waka Waka", "Reggae"),
-        ("Adele", "Hello", "Pop Soul"),
-        ("Snoop Dogg", "Sexual Eruption", "Hip Hop")
-    ]
+    
 
     # Perform content-based filtering using TF-IDF vectorization
     vectorizer = TfidfVectorizer()
