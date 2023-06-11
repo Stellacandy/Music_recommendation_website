@@ -8,7 +8,7 @@ app = Flask(__name__)
 # MySQL connection configuration
 mysql_host = 'localhost'
 mysql_user = 'root'
-mysql_password = 'Nomoya123##'
+mysql_password = ''
 mysql_database = 'music_app'
 
 connection = mysql.connector.connect(
