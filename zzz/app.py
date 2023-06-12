@@ -9,11 +9,7 @@ app = Flask(__name__)
 # MySQL connection configuration
 mysql_host = 'localhost'
 mysql_user = 'root'
-<<<<<<< HEAD
-mysql_password = 'Nomoya123##'
-=======
 mysql_password = ''
->>>>>>> 5a2b2cefb8252f19004c963647b129fb41f46441
 mysql_database = 'music_app'
 
 connection = mysql.connector.connect(
@@ -45,14 +41,10 @@ def recommend():
     results = perform_recommendation(query)
 
     return jsonify(results)
-<<<<<<< HEAD
- 
-=======
 
 
 def perform_recommendation(query):
     
->>>>>>> 5a2b2cefb8252f19004c963647b129fb41f46441
 
     # Perform content-based filtering using TF-IDF vectorization
     vectorizer = TfidfVectorizer()
