@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from flask import Flask, request, render_template, jsonify
 import mysql.connector
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -9,7 +9,7 @@ app = Flask(__name__)
 # MySQL connection configuration
 mysql_host = 'localhost'
 mysql_user = 'root'
-mysql_password = ''
+mysql_password = 'Nomoya123##'
 mysql_database = 'music_app'
 
 connection = mysql.connector.connect(
@@ -19,16 +19,9 @@ connection = mysql.connector.connect(
     database=mysql_database
 )
 
-
 @app.route("/")
 def home():
-    return '''
-    <h1>Welcome to Play Suits!</h1>
-    <form action="/search" method="post">      
-        <input type="text" name="query" placeholder="Enter a song or artist">
-        <input type="submit" value="Search">   
-    </form>
-    '''
+    return render_template("index.html")
 
 
 @app.route("/search", methods=["POST"])
@@ -48,16 +41,7 @@ def recommend():
     results = perform_recommendation(query)
 
     return jsonify(results)
-
-
-def perform_recommendation(query):
-    preprocessed_data = [
-        ("Rihanna", "Love on the Brain", "Pop"),
-        ("Chris Brown", "Influential", "Pop"),
-        ("Shakira", "Waka Waka", "Reggae"),
-        ("Adele", "Hello", "Pop Soul"),
-        ("Snoop Dogg", "Sexual Eruption", "Hip Hop")
-    ]
+ 
 
     # Perform content-based filtering using TF-IDF vectorization
     vectorizer = TfidfVectorizer()
